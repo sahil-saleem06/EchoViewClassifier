@@ -22,8 +22,8 @@
 # ── Config — edit these paths before running ──────────────────────────────────
 
 DICOM_DIR   = "/Volumes/biobank_analytics/verma_lab/pmbb_echo/"
-CHECKPOINT  = "/dbfs/FileStore/view_classifier/view_23_e5_class_11-Mar-2018"
-OUTPUT_DIR  = "/dbfs/FileStore/sahil/view_labels/"
+CHECKPOINT  = "/Workspace/VermaLab/Sahil_EchoCV/view_classifier/view_23_e5_class_11-Mar-2018"
+OUTPUT_DIR  = "/Workspace/VermaLab/Sahil_EchoCV/view_labels/"
 N_SAMPLES   = 20
 
 # COMMAND ----------
@@ -42,7 +42,7 @@ from pathlib import Path
 from tqdm import tqdm
 
 # Add the view_classifier.py location to path so we can import it
-sys.path.append("/dbfs/FileStore/view_classifier/")
+sys.path.append("/Workspace/VermaLab/Sahil_EchoCV/view_classifier/")
 from view_classifier import Network
 
 random.seed(42)
