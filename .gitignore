@@ -29,3 +29,13 @@ checkpoints/
 # IDEs
 .idea/
 .vscode/
+
+# R
+.RData
+.Rhistory
+
+# UCSF checkpoint weights (large binary files — download from Dropbox)
+local_tests/view_23_e5_class_11-Mar-2018.*
+
+# Claude settings
+.claude/

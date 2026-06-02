@@ -15,20 +15,29 @@ The old model provides the reliable labels. The new model provides a modern, dep
 ```
 EchoViewClassifier/
 │
-├── notebooks/
-│   └── 01_label_dicoms.py        # Databricks notebook — runs Stage 1 end to end
+├── local_tests/                          # OLD classifier — local sanity checks
+│   ├── label_avis.py                     # Test UCSF classifier on EchoNet AVI files
+│   ├── view_classifier.py                # UCSF VGG-16 architecture (TF2 patched)
+│   ├── viewclasses_view_23_e5_class_11-Mar-2018.txt  # 23 view class names
+│   ├── evaluate_sanity_check.R           # Precision/recall evaluation (yardstick)
+│   ├── avi_labels.csv                    # Sanity check results (20 EchoNet clips)
+│   └── sanity_check_results.md           # Notes on sanity check findings
+│   * Checkpoint weights not included — download from Dropbox (see Stage 1 setup)
 │
-├── scripts/
-│   ├── label_dicoms.py           # Stage 1: label raw DICOMs with UCSF classifier
-│   └── extract_frames.py         # Utility: extract frames from AVI files for testing
+├── notebooks/                            # OLD classifier — Databricks deployment
+│   └── 01_label_dicoms.py               # Run UCSF classifier on raw TTE DICOMs
 │
-├── classifier/                   # Stage 2: EfficientNet model package
-│   ├── model.py                  # Model architecture
-│   ├── dataset.py                # Data loading
-│   └── transforms.py             # Image preprocessing
+├── scripts/                              # Shared utilities
+│   ├── label_dicoms.py                   # Label DICOMs with UCSF classifier (script version)
+│   └── extract_frames.py                 # Extract frames from AVI files
 │
-├── train.py                      # Stage 2: train the EfficientNet classifier
-├── predict.py                    # Stage 2: run inference on new images
+├── classifier/                           # NEW classifier — EfficientNet model package
+│   ├── model.py                          # EfficientNet-B0 architecture
+│   ├── dataset.py                        # Data loading
+│   └── transforms.py                     # Image preprocessing
+│
+├── train.py                              # NEW classifier — training loop
+├── predict.py                            # NEW classifier — inference
 └── requirements.txt
 ```
 
